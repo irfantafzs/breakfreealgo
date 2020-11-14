@@ -99,7 +99,9 @@ class _WelcomePageState extends State<WelcomePage> {
   }
 
   Widget _icon() {
-    return Image(image: AssetImage('images/icon.png'));
+    return Image(image: AssetImage('images/icon.png'),
+        height: 50,
+        alignment: Alignment.center,);
   }
 
   Widget _title() {
