@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "116634095907",
+    "firebase_url": "https://breakfreealgo-9d4c1.firebaseio.com",
+    "project_id": "breakfreealgo-9d4c1",
+    "storage_bucket": "breakfreealgo-9d4c1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:116634095907:android:ef3f68722207256f1bfc96",
+        "android_client_info": {
+          "package_name": "com.breakfreealgo.breakfreealgo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "116634095907-viomtd0eat6plqpnhi42ipi0e6b0jm6j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCj14VyiQCfAIXVr563WSKydCU6Oceqetk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "116634095907-viomtd0eat6plqpnhi42ipi0e6b0jm6j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

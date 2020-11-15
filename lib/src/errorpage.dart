@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:breakfreealgo/src/widget/bezierContainer.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class errorPage extends StatefulWidget {
-  errorPage({Key key, this.title}) : super(key: key);
+class ErrorPage extends StatefulWidget {
+  ErrorPage({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _errorPageState createState() => _errorPageState();
+  _ErrorPageState createState() => _ErrorPageState();
 }
 
-class _errorPageState extends State<errorPage> {
+class _ErrorPageState extends State<ErrorPage> {
   Widget _backButton() {
     return InkWell(
       onTap: () {
@@ -33,26 +33,25 @@ class _errorPageState extends State<errorPage> {
     );
   }
 
-  Widget _entryText(String title, {bool isPassword = false}) {
+  Widget _entryField(String title, {bool isPassword = false}) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
+      width: MediaQuery.of(context).size.width,
+      padding: EdgeInsets.symmetric(vertical: 15),
+      alignment: Alignment.center,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
             title,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           ),
           SizedBox(
             height: 10,
           ),
-
         ],
       ),
     );
   }
-
-
 
 
   Widget _title() {
@@ -78,12 +77,41 @@ class _errorPageState extends State<errorPage> {
   Widget _errorpageWidget() {
     return Column(
       children: <Widget>[
-        _entryText("Oops Some thing went wrong"),
-        _entryText("Please try again by pressing back"),
+        _entryField("Oops Something went wrong."),
+        _entryField("Press Back and try again"),
+        _entryField("If issue persist please contact Admin"),
       ],
     );
   }
+  Widget _submitButton() {
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      padding: EdgeInsets.symmetric(vertical: 15),
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(5)),
+          boxShadow: <BoxShadow>[
+            BoxShadow(
+                color: Colors.grey.shade200,
+                offset: Offset(2, 4),
+                blurRadius: 5,
+                spreadRadius: 2)
+          ],
+          gradient: LinearGradient(
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              colors: [Color(0xff4fae8d), Color(0xff2cd1d1)])), //0xfffbb448,0xfff7892b
+      child: Text(
+        'Send Data to Admin',
+        style: TextStyle(fontSize: 20, color: Colors.white),
+      ),
+    );
+  }
 
+  Widget _icon() {
+    return Image(image: AssetImage('images/icon.png'),
+        height:50);
+  }
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -105,6 +133,7 @@ class _errorPageState extends State<errorPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     SizedBox(height: height * .2),
+                    _icon(),
                     _title(),
                     SizedBox(
                       height: 50,
@@ -113,6 +142,7 @@ class _errorPageState extends State<errorPage> {
                     SizedBox(
                       height: 20,
                     ),
+                    _submitButton(),
                     SizedBox(height: height * .14),
                   ],
                 ),

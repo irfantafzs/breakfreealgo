@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:breakfreealgo/src/widget/bezierContainer.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ForgotpasswordPage extends StatefulWidget {
-  ForgotpasswordPage({Key key, this.title}) : super(key: key);
+class LoadingPage extends StatefulWidget {
+  LoadingPage({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _ForgotpasswordPageState createState() => _ForgotpasswordPageState();
+  _LoadingPageState createState() => _LoadingPageState();
 }
 
-class _ForgotpasswordPageState extends State<ForgotpasswordPage> {
+class _LoadingPageState extends State<LoadingPage> {
   Widget _backButton() {
     return InkWell(
       onTap: () {
@@ -32,56 +32,29 @@ class _ForgotpasswordPageState extends State<ForgotpasswordPage> {
       ),
     );
   }
-
+  Widget _icon() {
+    return Image(image: AssetImage('images/icon.png'),
+        height:50);
+  }
   Widget _entryField(String title, {bool isPassword = false}) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
+      width: MediaQuery.of(context).size.width,
+      padding: EdgeInsets.symmetric(vertical: 15),
+      alignment: Alignment.center,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
             title,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           ),
           SizedBox(
             height: 10,
           ),
-          TextField(
-              obscureText: isPassword,
-              decoration: InputDecoration(
-                  border: InputBorder.none,
-                  fillColor: Color(0xfff3f3f4), //0xfff3f3f4
-                  filled: true))
         ],
       ),
     );
   }
-
-  Widget _submitButton() {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      padding: EdgeInsets.symmetric(vertical: 15),
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(5)),
-          boxShadow: <BoxShadow>[
-            BoxShadow(
-                color: Colors.grey.shade200,
-                offset: Offset(2, 4),
-                blurRadius: 5,
-                spreadRadius: 2)
-          ],
-          gradient: LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              colors: [Color(0xff4fae8d), Color(0xff2cd1d1)])), //0xfffbb448,0xfff7892b
-      child: Text(
-        'Get Password',
-        style: TextStyle(fontSize: 20, color: Colors.white),
-      ),
-    );
-  }
-
 
 
   Widget _title() {
@@ -103,18 +76,16 @@ class _ForgotpasswordPageState extends State<ForgotpasswordPage> {
           ]),
     );
   }
-  Widget _icon() {
-    return Image(image: AssetImage('images/icon.png'),
-        height:50);
-  }
-  Widget _forgotpasswordWidget() {
+
+  Widget _loadingpageWidget() {
     return Column(
       children: <Widget>[
-        _entryField("Email id"),
-        _entryField("Mobile Number"),
+        _entryField("Loading..."),
+
       ],
     );
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -142,12 +113,11 @@ class _ForgotpasswordPageState extends State<ForgotpasswordPage> {
                     SizedBox(
                       height: 50,
                     ),
-                    _forgotpasswordWidget(),
+                    _loadingpageWidget(),
                     SizedBox(
                       height: 20,
                     ),
-                    _submitButton(),
-                    SizedBox(height: height * .14),
+                   SizedBox(height: height * .14),
                   ],
                 ),
               ),

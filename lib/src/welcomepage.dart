@@ -3,12 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:breakfreealgo/src/loginpage.dart';
 import 'package:breakfreealgo/src/signup.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:breakfreealgo/src/errorpage.dart';
+import 'package:breakfreealgo/src/loadingpage.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:breakfreealgo/src/appdata.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class WelcomePage extends StatefulWidget {
   WelcomePage({Key key, this.title}) : super(key: key);
 
   final String title;
+  // final Appdata appdata;
 
   @override
   _WelcomePageState createState() => _WelcomePageState();
@@ -100,8 +106,7 @@ class _WelcomePageState extends State<WelcomePage> {
 
   Widget _icon() {
     return Image(image: AssetImage('images/icon.png'),
-        height: 50,
-        alignment: Alignment.center,);
+    height:50);
   }
 
   Widget _title() {
